@@ -1474,10 +1474,8 @@ public final class XposedHelpers {
 	 * @return The content of the asset.
 	 */
 	public static byte[] assetAsByteArray(Resources res, String path) throws IOException {
-		return inputStreamToByteArray(res.getAssets().open(path));
-	}
+		InputStream is = res.getAssets().open(path);
 
-	/*package*/ static byte[] inputStreamToByteArray(InputStream is) throws IOException {
 		ByteArrayOutputStream buf = new ByteArrayOutputStream();
 		byte[] temp = new byte[1024];
 		int read;
